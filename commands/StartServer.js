@@ -11,18 +11,18 @@ class StartServer {
 
 	async execute(msg, args) {
 		const prefix = msg.prefix;
+		const embeds = this.client.embeds;
 		const correctUsage = `\`${prefix}${this.usage}\``;
 
 		AternosUtil.StartServer()
 			.then((response) => {
-				console.log(response.status);
 				if (response.status == 200) 
-					msg.reply("Starting the server");
+					msg.reply({embeds: [
+						embeds.SuccessEmbed("Server started!")
+					]});
 			})
 			.catch((err) => {
 				console.log(err);
-				console.log(err.response.data);
-				require("fs").writeFileSync("index.html", err.response.data);
 			});
 	}
 }

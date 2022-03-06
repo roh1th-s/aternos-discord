@@ -3,7 +3,7 @@
 	- https://github.com/cucyber/JA3Transport
 	- https://medium.com/cu-cyber/impersonating-ja3-fingerprints-b9f555880e42 
 
-	Repository link for cycleTLS (golang library for impersonation ja3 fingerprints)
+	Repository link for cycleTLS (golang library for impersonating ja3 fingerprints)
 	: https://github.com/Danny-Dasilva/CycleTLS
 */
 const initCycleTls = require("cycletls");
@@ -27,7 +27,7 @@ class RequestInstance {
 		}
 		return new Promise(async (resolve, reject) => {
 			try {
-				let newParams = {...this.initParams, ...params};
+				let newParams = { ...this.initParams, ...params };
 				if (newParams.url) delete newParams.url;
 				const resp = await RequestUtil.get(url, newParams);
 
@@ -44,7 +44,7 @@ class RequestInstance {
 		}
 		return new Promise(async (resolve, reject) => {
 			try {
-				let newParams = {...this.initParams, ...params};
+				let newParams = { ...this.initParams, ...params };
 				if (newParams.url) delete newParams.url;
 
 				const resp = await RequestUtil.post(url, newParams);

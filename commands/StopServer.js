@@ -11,18 +11,21 @@ class StopServer {
 
 	async execute(msg, args) {
 		const prefix = msg.prefix;
+		const embeds = this.client.embeds;
 		const correctUsage = `\`${prefix}${this.usage}\``;
 
 		AternosUtil.StopServer()
 			.then((response) => {
-				console.log(response.status);
 				if (response.status == 200) 
-					msg.reply("Stopping the server");
+				msg.reply({ 
+					embeds: [
+						embeds.SimpleEmbed("Server stopped.")
+							.setColor(embeds.colors.Error)
+					] 
+				});
 			})
 			.catch((err) => {
 				console.log(err);
-				console.log(err.response.data);
-				require("fs").writeFileSync("index.html", err.response.data);
 			});
 	}
 }

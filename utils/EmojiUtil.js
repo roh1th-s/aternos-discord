@@ -4,7 +4,12 @@ class EmojiUtil {
 	static initialized = false;
 
 	static async initialize(client) {
-		if (!client) throw "Client not provided";
+		if (this.initialized) return;
+
+		if (!client) {
+			console.log("[EmojiUtil] Client not provided");
+			return;
+		}
 
 		this.client = client;
 

@@ -10,7 +10,11 @@ const Client = new Discord.Client({
 
 const EmbedUtil = require("./utils/EmbedUtil");
 const RequestUtil = require("./utils/RequestUtil");
-RequestUtil.initialize(); //async
+const AternosUtil = require("./utils/AternosUtil");
+
+RequestUtil.initialize().then(() => {
+	AternosUtil.initialize(); //async
+}); //async
 
 Client.config = Config;
 

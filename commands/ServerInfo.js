@@ -1,4 +1,4 @@
-const axios = require("axios").default
+const axios = require("axios").default;
 
 class ServerInfo {
 	constructor(client) {
@@ -12,9 +12,6 @@ class ServerInfo {
 	async execute(msg, args) {
 		const prefix = msg.prefix;
 		const correctUsage = `\`${prefix}${this.usage}\``;
-
-   
-		
 	}
 }
 
